@@ -1,12 +1,13 @@
 import React from "react";
-import "./App.css";
+import Scene from "./Scene.jsx";
+import "./App.scss";
 
-function App() {
-	return (
-		<div className="App">
-			Hello World!
-		</div>
-	);
+class App extends React.Component {
+	render() {
+		return (
+			<Scene />
+		);
+	}
 }
 
 export default App;
