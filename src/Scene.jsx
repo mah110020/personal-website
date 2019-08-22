@@ -12,6 +12,10 @@ const faces = Object.fromEntries(
 	})
 );
 
+const defaultPointFold = (radians, vertices) => vertices.map( vertex =>
+	({ x: vertex.x, y: vertex.y + vertex.z * Math.sin(radians), z: vertex.z * Math.cos(radians) })
+);
+
 class Scene extends React.Component {
 	constructor(props){
 		super(props);
@@ -82,9 +86,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // top of side-roof
 				const p4i = { x: minT.x, y: maxT.y, z: maxB.z }; // union point of roof corners
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -110,9 +112,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // top of side-roof
 				const p4i = { x: minT.x, y: maxT.y, z: maxB.z }; // union point of roof corners
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -138,9 +138,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // back-most top of top side-pair
 				const p4i = { x: minT.x, y: minB.y, z: minT.z }; // union point of side-quad
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -166,9 +164,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // back-most top of top side-pair
 				const p4i = { x: minT.x, y: minB.y, z: minT.z }; // union point of side-quad
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -194,9 +190,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // top of bottom side-pair
 				const p4i = { x: minT.x, y: maxT.y, z: maxB.z }; // union point of side-quad
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -222,9 +216,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // top of bottom side-pair
 				const p4i = { x: minT.x, y: maxT.y, z: maxB.z }; // union point of side-quad
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -250,9 +242,7 @@ class Scene extends React.Component {
 				const p3i = { x: minRT.x, y: minRT.y, z: maxRT.z }; // bottom right of top roof
 				const p4i = { x: minRT.x, y: maxRT.y, z: minRT.z }; // right union point of roof corners
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -278,9 +268,7 @@ class Scene extends React.Component {
 				const p3i = { x: minRB.x, y: maxRB.y, z: minRB.z }; // top right of bottom roof
 				const p4i = { x: minRT.x, y: maxRT.y, z: minRT.z }; // right union point of roof corners
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -306,9 +294,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // back-most top of top side-pair
 				const p4i = { x: minT.x, y: minB.y, z: minT.z }; // union point of side-quad
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -334,9 +320,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // back-most top of top side-pair
 				const p4i = { x: minT.x, y: minB.y, z: minT.z }; // union point of side-quad
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -362,9 +346,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // top of bottom side-pair
 				const p4i = { x: minT.x, y: maxT.y, z: maxB.z }; // union point of side-quad
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -390,9 +372,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // top of bottom side-pair
 				const p4i = { x: minT.x, y: maxT.y, z: maxB.z }; // union point of side-quad
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -418,9 +398,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // top of side-roof
 				const p4i = { x: minT.x, y: maxT.y, z: maxB.z }; // right union point of roof corners
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
@@ -446,9 +424,7 @@ class Scene extends React.Component {
 				const p3i = { x: minT.x, y: minT.y, z: maxT.z }; // top of side-roof
 				const p4i = { x: minT.x, y: maxT.y, z: maxB.z }; // right union point of roof corners
 
-				const p1f = { x: p1i.x, y: p1i.y + p1i.z * Math.sin(radians), z: p1i.z * Math.cos(radians) };
-				const p2f = { x: p2i.x, y: p2i.y + p2i.z * Math.sin(radians), z: p2i.z * Math.cos(radians) };
-				const p3f = { x: p3i.x, y: p3i.y + p3i.z * Math.sin(radians), z: p3i.z * Math.cos(radians) };
+				const [p1f, p2f, p3f] = defaultPointFold(radians, [p1i, p2i, p3i]);
 
 				const r1 = MathUtils.dist(p1i, p4i);
 				const r2 = MathUtils.dist(p2i, p4i);
