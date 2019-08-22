@@ -13,6 +13,25 @@ export const multi = (scalar, p1) => ({
 export const sub = (p1, p2) => add(p1, multi(-1, p2));
 export const dot = (p1, p2) => p1.x * p2.x + p1.y * p2.y + p1.z * p2.z;
 export const mag = p1 => Math.hypot(p1.x, p1.y, p1.z);
+export const dist = (p1, p2) => mag( sub(p1, p2) );
+
+export const minMax = vertices => {
+	return vertices.reduce((rdc, vertex) => {
+		const hyp = mag(vertex);
+		if( !(hyp >= rdc.mag.min) ){
+			rdc.vertex.min = vertex;
+			rdc.mag.min = hyp;
+		}
+		if( !(hyp <= rdc.mag.max) ){
+			rdc.vertex.max = vertex;
+			rdc.mag.max = hyp;
+		}
+		return rdc;
+	}, {
+		vertex: { min: null, max: null },
+		mag: { min: NaN, max: NaN }
+	}).vertex;
+};
 
 export const unit = p1 => {
 	const hyp = mag(p1);
@@ -59,7 +78,7 @@ export const getLocalCoords = (p1, p2, p3) => {
 // https://en.wikipedia.org/wiki/True_range_multilateration#Three_Cartesian_dimensions,_three_measured_slant_ranges
 export const threeSphereIntersection = (p1, r1, p2, r2, p3, r3) => {
 
-	const {t1, t2, t3, localX, localY, localZ} = getLocalCoords(p1, p2, p3);
+	const {t2, t3, localX, localY, localZ} = getLocalCoords(p1, p2, p3);
 
 	const u = t2.x;
 	const vx = t3.x;
@@ -137,6 +156,24 @@ export const get2DFrom3DPolygon = vertices => {
 	return {
 		points: localVertices, // 2d points
 		transform: transformation, // matrix to transform it back into 3d space
+		vertices, // 3d points
 		normal: localZ // normal of 3d polygon
 	};
+};
+
+export const boundingBox = vertices => {
+	return vertices.reduce((box, vertex) => {
+		box.min.x = vertex.x >= box.min.x ? box.min.x : vertex.x;
+		box.min.y = vertex.y >= box.min.y ? box.min.y : vertex.y;
+		box.min.z = vertex.z >= box.min.z ? box.min.z : vertex.z;
+
+		box.max.x = vertex.x <= box.max.x ? box.max.x : vertex.x;
+		box.max.y = vertex.y <= box.max.y ? box.max.y : vertex.y;
+		box.max.z = vertex.z <= box.max.z ? box.max.z : vertex.z;
+
+		return box;
+	}, {
+		min: { x: NaN, y: NaN, z: NaN },
+		max: { x: NaN, y: NaN, z: NaN }
+	});
 };
