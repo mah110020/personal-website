@@ -5,13 +5,22 @@ import faces from "./faces.js";
 import parametricTransforms from "./parametricTransforms.js";
 import "./Scene.scss";
 
+let fold = null;
+
 class Scene extends React.Component {
 	constructor(props){
 		super(props);
 		this.ref = React.createRef();
 	}
 
+	componentDidUpdate(){
+		const {radians} = this.props;
+		fold(radians);
+	}
+
 	componentDidMount(){
+		const {radians: initAngle} = this.props;
+
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
@@ -69,7 +78,7 @@ class Scene extends React.Component {
 
 		for( const {mesh, parametricTransform} of Object.values(meshMap) ){
 			scene.add(mesh);
-			parametricTransform(Math.PI/16);
+			parametricTransform(initAngle);
 		}
 
 		const light1 = new THREE.PointLight( 0xffffff, 1, 100 );
@@ -101,6 +110,12 @@ class Scene extends React.Component {
 		};
 
 		animate();
+
+		fold = radians => {
+			for( const {mesh, parametricTransform} of Object.values(meshMap) ){
+				parametricTransform(radians);
+			}
+		};
 	}
 
 	render() {

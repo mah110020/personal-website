@@ -5,7 +5,7 @@ import "./App.scss";
 class App extends React.Component {
 	render() {
 		return (
-			<Scene />
+			<Scene radians={Math.PI/16} />
 		);
 	}
 }
