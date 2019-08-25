@@ -12,9 +12,7 @@ class Parallax extends React.Component {
 				</div>
 
 				<div className="slider">
-					<div className="panel panel2">
-						<Scene radians={Math.PI/16} />
-					</div>
+					<Scene radians={Math.PI/16} />
 				</div>
 
 				<div className="panel panel3">

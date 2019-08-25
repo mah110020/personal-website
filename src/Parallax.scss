@@ -1,16 +1,22 @@
 .parallax {
 
-	.slider {
-		height: 250vh;
-	}
+	height: 100%;
+	width: 100%;
+	overflow: auto;
 
-	.slider > * {
-		position: sticky;
-		top: 0;
+	.slider {
+		--slider-play: 150; // [percent] how much extra scroll time the panel will stick
+		--slider-height: calc(var(--slider-play) + 100);
+		height: calc(var(--slider-height) * 1%);
+		& > div {
+			height: calc(100 / var(--slider-height) * 100%);
+			position: sticky;
+			top: 0;
+		}
 	}
 
 	.panel {
-		height: 100vh;
+		height: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
