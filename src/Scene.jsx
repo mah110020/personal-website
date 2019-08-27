@@ -8,10 +8,7 @@ import "./Scene.scss";
 let fold = null;
 
 class Scene extends React.Component {
-	constructor(props){
-		super(props);
-		this.ref = React.createRef();
-	}
+	ref = React.createRef();
 
 	componentDidUpdate(){
 		const {radians} = this.props;
