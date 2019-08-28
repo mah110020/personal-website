@@ -2,6 +2,7 @@ import React from "react";
 import * as THREE from "three";
 import * as MathUtils from "./mathUtils.js";
 import faces from "./faces.js";
+import styling from "./styling.js";
 import parametricTransforms from "./parametricTransforms.js";
 import "./Scene.scss";
 
@@ -42,7 +43,7 @@ class Scene extends React.Component {
 
 			const material = new THREE.MeshPhongMaterial({
 				side: THREE.DoubleSide,
-				color: Math.random()*0xFFFFFF|0
+				color: styling[key]
 			});
 
 			const mesh = new THREE.Mesh(geometry, material);
