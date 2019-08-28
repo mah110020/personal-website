@@ -88,8 +88,8 @@ class Scene extends React.Component {
 		light2.position.set( -10, -10, -10 );
 		scene.add( light2 );
 
-		const axesHelper = new THREE.AxesHelper( 100 );
-		scene.add( axesHelper );
+		//const axesHelper = new THREE.AxesHelper( 100 );
+		//scene.add( axesHelper );
 
 		let angle = 0;
 		const animate = function () {
