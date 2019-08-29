@@ -80,11 +80,11 @@ class Scene extends React.Component {
 			parametricTransform(initAngle);
 		}
 
-		const light1 = new THREE.PointLight( 0xffffff, 1, 100 );
+		const light1 = new THREE.PointLight( 0xffffff, 1, 150 );
 		light1.position.set( 10, 10, 10 );
 		scene.add( light1 );
 
-		const light2 = new THREE.PointLight( 0xffffff, 1, 100 );
+		const light2 = new THREE.PointLight( 0xffffff, 1, 150 );
 		light2.position.set( -10, -10, -10 );
 		scene.add( light2 );
 
