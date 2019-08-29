@@ -1,5 +1,6 @@
 import React from "react";
 import Scene from "./Scene.jsx";
+import Sketch from "./Sketch.jsx";
 import "./Parallax.scss";
 
 const panelFadePortion = (scrollContainer, stickyContainer, stickyPanel) => {
@@ -26,7 +27,7 @@ class Parallax extends React.Component {
 			<div className="parallax" onScroll={this.handleScroll}>
 
 				<div className="panel panel1">
-					<span>Hello</span>
+					<Sketch />
 				</div>
 
 				<div className="slider" ref={this.sliderRef}>
