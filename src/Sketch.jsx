@@ -1,13 +1,13 @@
 import React from "react";
 import lines from "./lines.js";
 import "./Sketch.scss";
-import house from'./d57f8263788dba01c275e578cde6066a.jpg';
+import house from'./croppedHouse.jpg';
 
-const houseDims = { x: 1416, y: 1064 };
-const houseOrigin = { x: 850, y: 420 };
+const houseDims = { x: 1132, y: 1064 };
+const houseOrigin = { x: 566, y: 420 };
 const houseOffsetFraction = { x: houseOrigin.x/houseDims.x, y: houseOrigin.y/houseDims.y };
 const houseRatio = houseDims.y/houseDims.x;
-const houseHeightScale = 41;
+const houseHeightScale = 33;
 
 class Sketch extends React.Component {
 
