@@ -11,9 +11,11 @@ let fold = null;
 class Scene extends React.Component {
 	ref = React.createRef();
 
-	componentDidUpdate(){
-		const {radians} = this.props;
-		fold(radians);
+	componentDidUpdate(prevProps, prevState, snapshot){
+		if(prevProps.radians !== this.props.radians){
+			const {radians} = this.props;
+			fold(radians);
+		}
 	}
 
 	componentDidMount(){

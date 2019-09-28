@@ -12,14 +12,17 @@ const panelFadePortion = (scrollContainer, stickyContainer, stickyPanel) => {
 };
 
 class Parallax extends React.Component {
-	state = { portion: 0 };
+	state = { portion1: 0, portion2: 0 };
 
-	sliderRef = React.createRef();
-	panelRef = React.createRef();
+	slider1Ref = React.createRef();
+	panel2Ref = React.createRef();
+	slider2Ref = React.createRef();
+	panel1Ref = React.createRef();
 
 	handleScroll = evt => {
-		const portion = panelFadePortion(evt.target, this.sliderRef.current, this.panelRef.current);
-		this.setState({ portion });
+		const portion1 = panelFadePortion(evt.target, this.slider1Ref.current, this.panel1Ref.current);
+		const portion2 = panelFadePortion(evt.target, this.slider2Ref.current, this.panel2Ref.current);
+		this.setState({ portion1, portion2 });
 	};
 
 	render() {
@@ -27,12 +30,18 @@ class Parallax extends React.Component {
 			<div className="parallax" onScroll={this.handleScroll}>
 
 				<div className="panel panel1">
-					<Sketch />
+					<span>Hello</span>
 				</div>
 
-				<div className="slider" ref={this.sliderRef}>
-					<div ref={this.panelRef}>
-						<Scene radians={Math.PI/2 * 0.95 * (1 - this.state.portion)} />
+				<div className="slider" ref={this.slider1Ref}>
+					<div ref={this.panel1Ref}>
+						<Sketch portion={this.state.portion1}/>
+					</div>
+				</div>
+
+				<div className="slider" ref={this.slider2Ref}>
+					<div ref={this.panel2Ref}>
+						<Scene radians={Math.PI/2 * 0.95 * (1 - this.state.portion2)} />
 					</div>
 				</div>
 
