@@ -2,9 +2,29 @@
 
 	height: 100%;
 	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+
+	.slice {
+		width: 100%;
+		height: calc(100%/3);
+	}
+
+	.align-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.chevron-down {
+		position: relative;
+		top: 0px;
+
+		transition-property: top;
+		transition-duration: 0.7s;
+
+		&:hover, &:active {
+			top: 20px;
+		}
+	}
 
 	.name-expander {
 		font-size: 3em;
