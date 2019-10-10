@@ -1,4 +1,5 @@
 import React from "react";
+import LandingPad from "./LandingPad.jsx";
 import Scene from "./Scene.jsx";
 import Sketch from "./Sketch.jsx";
 import "./Parallax.scss";
@@ -30,12 +31,12 @@ class Parallax extends React.Component {
 			<div className="parallax" onScroll={this.handleScroll}>
 
 				<div className="panel panel1">
-					<span>Hello</span>
+					<LandingPad />
 				</div>
 
 				<div className="slider" ref={this.slider1Ref}>
 					<div ref={this.panel1Ref}>
-						<Sketch portion={this.state.portion1}/>
+						<Sketch portion={this.state.portion1} />
 					</div>
 				</div>
 
