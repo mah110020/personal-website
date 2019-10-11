@@ -80,6 +80,19 @@ class Sketch extends React.Component {
 						</svg>
 					</div>
 				</div>
+
+				<span
+					className="floating-label1"
+					style={{opacity: Math.min(0.5, this.props.portion)*2}}
+				>
+					Let's
+				</span>
+				<span
+					className="floating-label2"
+					style={{opacity: Math.max(0.5, this.props.portion)*2-1}}
+				>
+					Build
+				</span>
 			</div>
 		);
 	}

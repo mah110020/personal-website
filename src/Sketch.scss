@@ -9,6 +9,21 @@
 
 	overflow: hidden;
 
+	position: relative;
+	.floating-label1, .floating-label2 {
+		position: absolute;
+		font-size: 8em;
+		color: #111111;
+	}
+	.floating-label1 {
+		top: 0;
+		left: 0;
+	}
+	.floating-label2 {
+		bottom: 0;
+		right: 0;
+	}
+
 	.overlay-container {
 		flex-shrink: 0;
 
