@@ -4,6 +4,7 @@ import * as MathUtils from "./mathUtils.js";
 import faces from "./faces.js";
 import styling from "./styling.js";
 import parametricTransforms from "./parametricTransforms.js";
+import faceTypeFont from "./optimer_regular.typeface.json";
 import "./Scene.scss";
 
 let fold = null;
@@ -76,6 +77,33 @@ class Scene extends React.Component {
 			};
 			return meshMap;
 		}, {});
+
+		// create text geometry
+		const loader = new THREE.FontLoader();
+		const font = loader.parse(faceTypeFont);
+		const textGeometry = new THREE.TextGeometry( "Something", {
+			font: font,
+			size: 1,
+			height: 0
+		});
+		const textMaterial = new THREE.MeshPhongMaterial({
+			color: 0xff0000,
+			specular: 0xffffff
+		});
+		const textMesh = new THREE.Mesh( textGeometry, textMaterial );
+
+		textGeometry.center();
+		textGeometry.rotateX(-Math.PI/2);
+		textGeometry.rotateZ(Math.PI);
+		textGeometry.translate(8.5/2, -0.001, 11/4);
+
+		// add the text mesh to the meshMap
+		meshMap["handleText"] = {
+			mesh: textMesh,
+			parametricTransform: radians => {
+				textMesh.rotation.x = -radians;
+			}
+		};
 
 		for( const {mesh, parametricTransform} of Object.values(meshMap) ){
 			scene.add(mesh);
