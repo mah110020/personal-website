@@ -81,28 +81,51 @@ class Scene extends React.Component {
 		// create text geometry
 		const loader = new THREE.FontLoader();
 		const font = loader.parse(faceTypeFont);
-		const textGeometry = new THREE.TextGeometry( "Something", {
+
+		const textGeometry1 = new THREE.TextGeometry( "Something", {
 			font: font,
 			size: 1,
 			height: 0
 		});
-		const textMaterial = new THREE.MeshPhongMaterial({
-			color: 0xff0000,
+		const textMaterial1 = new THREE.MeshPhongMaterial({
+			color: 0x50858f,
 			specular: 0xffffff
 		});
-		const textMesh = new THREE.Mesh( textGeometry, textMaterial );
+		const textMesh1 = new THREE.Mesh( textGeometry1, textMaterial1 );
 
-		textGeometry.center();
-		textGeometry.rotateX(-Math.PI/2);
-		textGeometry.rotateZ(Math.PI);
-		textGeometry.translate(8.5/2, -0.001, 11/4);
+		textGeometry1.center();
+		textGeometry1.rotateX(-Math.PI/2);
+		textGeometry1.rotateZ(Math.PI);
+		textGeometry1.translate(8.5/2, -0.001, 11/4);
 
 		// add the text mesh to the meshMap
-		meshMap["handleText"] = {
-			mesh: textMesh,
+		meshMap["handleText1"] = {
+			mesh: textMesh1,
 			parametricTransform: radians => {
-				textMesh.rotation.x = -radians;
+				textMesh1.rotation.x = -radians;
 			}
+		};
+
+		const textGeometry2 = new THREE.TextGeometry( "Interesting.", {
+			font: font,
+			size: 1,
+			height: 0
+		});
+		const textMaterial2 = new THREE.MeshPhongMaterial({
+			color: 0x12b017,
+			specular: 0xffffff
+		});
+		const textMesh2 = new THREE.Mesh( textGeometry2, textMaterial2 );
+
+		textGeometry2.center();
+		textGeometry2.rotateZ(Math.PI);
+		textGeometry2.translate(8.5/2, 11/2*3/4, 0.001);
+
+		// add the text mesh to the meshMap
+		scene.add(textMesh2);
+		meshMap["handleText2"] = {
+			mesh: textMesh2,
+			parametricTransform: radians => {} // doesn't transform
 		};
 
 		for( const {mesh, parametricTransform} of Object.values(meshMap) ){
