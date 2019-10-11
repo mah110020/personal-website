@@ -1,5 +1,5 @@
 import React from "react";
-import LandingPad from "./LandingPad.jsx";
+import LandingPad from "./LandingPad/LandingPad.jsx";
 import Scene from "./Scene/Scene.jsx";
 import Sketch from "./Sketch/Sketch.jsx";
 import "./Parallax.scss";

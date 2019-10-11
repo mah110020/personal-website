@@ -1,5 +1,5 @@
 import React from "react";
-import Parallax from "./Parallax.jsx";
+import Parallax from "./Parallax/Parallax.jsx";
 import "./App.scss";
 import "./iconLibrary.js";
 
