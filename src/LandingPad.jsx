@@ -12,11 +12,14 @@ class LandingPad extends React.Component {
 				</div>
 
 				<div className="slice align-center">
-					<span className="name-expander">
+					<div className="name-expander">
 						<span className="text-static">matthew.h</span>
 						<span className="text-expand">enderso</span>
 						<span className="text-static">n</span>
-					</span>
+					</div>
+					<div>
+						A sandbox site for my own stuff.
+					</div>
 				</div>
 
 				<div className="slice align-center">
