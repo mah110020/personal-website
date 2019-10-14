@@ -5,6 +5,27 @@ import Parallax from "./Parallax/Parallax.jsx";
 import "./App.scss";
 import "./iconLibrary.js";
 
+const Router = ({url, navigateURL}) => {
+	switch(url){
+
+		// home page
+		case "/": {
+			return <Parallax />;
+		}
+
+		// initializing..
+		case null: {
+			return null;
+		}
+
+		// no defined route -- route back to home page
+		default: {
+			navigateURL("/");
+			return null;
+		}
+	}
+};
+
 class App extends React.Component {
 	componentDidMount(){
 		// initial url
@@ -15,7 +36,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<Parallax />
+				<Router url={this.props.url} navigateURL={this.props.navigateURL}/>
 			</div>
 		);
 	}
