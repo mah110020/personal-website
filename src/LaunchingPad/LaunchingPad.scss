@@ -1,0 +1,53 @@
+
+.launching-pad {
+
+	height: 100%;
+	width: 100%;
+
+	background-color: #adcdce;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.portal-row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.portal {
+		width: 20ch;
+
+		display: inline;
+
+		padding: 1.5ch;
+		margin: 1.5ch;
+
+		background-color: gray;
+		font-weight: bold;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.button1:hover {
+		color: white;
+		transition: color 0.4s;
+		background: linear-gradient(45deg, teal, darkblue);
+	}
+
+	.button2:hover {
+		color: white;
+		transition: color 0.4s;
+		background: linear-gradient(45deg, orange, red);
+	}
+
+	.button3:hover {
+		color: white;
+		transition: color 0.4s;
+		background: linear-gradient(45deg, darkcyan, darkgreen);
+	}
+}

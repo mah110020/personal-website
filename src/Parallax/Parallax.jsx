@@ -2,6 +2,7 @@ import React from "react";
 import LandingPad from "../LandingPad/LandingPad.jsx";
 import Scene from "../Scene/Scene.jsx";
 import Sketch from "../Sketch/Sketch.jsx";
+import LaunchingPad from "../LaunchingPad/LaunchingPad.jsx";
 import "./Parallax.scss";
 
 const panelFadePortion = (scrollContainer, stickyContainer, stickyPanel) => {
@@ -30,7 +31,7 @@ class Parallax extends React.Component {
 		return (
 			<div className="parallax" onScroll={this.handleScroll}>
 
-				<div className="panel panel1">
+				<div className="panel">
 					<LandingPad />
 				</div>
 
@@ -46,13 +47,13 @@ class Parallax extends React.Component {
 					</div>
 				</div>
 
-				<div className="panel panel3">
-					<span>Welcome</span>
+				<div className="panel">
+					<LaunchingPad />
 				</div>
 
-				<div className="panel panel4">
+				{/*<div className="panel panel4">
 					<span>Back</span>
-				</div>
+				</div>*/}
 
 			</div>
 		);
