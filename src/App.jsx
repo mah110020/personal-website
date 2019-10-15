@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { navigateURL } from "./actions.js";
+import Navbar from "./Navbar/Navbar.jsx";
 import Parallax from "./Parallax/Parallax.jsx";
 import AboutMe from "./AboutMe/AboutMe.jsx";
 import "./App.scss";
@@ -45,7 +46,12 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<Router url={this.props.url} navigateURL={this.props.navigateURL}/>
+				<div className="static-flex">
+					{ ["/about"].includes(this.props.url) && <Navbar/>}
+				</div>
+				<div className="dynamic-flex">
+					<Router url={this.props.url} navigateURL={this.props.navigateURL}/>
+				</div>
 			</div>
 		);
 	}
@@ -53,7 +59,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
 	url: state.url
-})
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	navigateURL: (url, push) => dispatch(navigateURL(url, push))

@@ -1,0 +1,15 @@
+
+.navbar {
+
+	width: 100%;
+	background-color: lightgrey;
+
+	font-size: 1em;
+
+	display: flex;
+
+	.navlink {
+		flex-grow: 1;
+		flex-shrink: 0;
+	}
+}

@@ -1,0 +1,42 @@
+
+.navbuttons {
+	.navlink {
+		width: 20ch;
+
+		padding: 1.5ch;
+
+		background-color: gray;
+
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+
+		box-sizing: content-box;
+
+		font-weight: bold;
+	}
+
+	.home-button:hover, .home-button.active {
+		color: white;
+		transition: color 0.4s;
+		background: linear-gradient(45deg, lightgrey, black);
+	}
+
+	.about-button:hover, .about-button.active {
+		color: white;
+		transition: color 0.4s;
+		background: linear-gradient(45deg, teal, darkblue);
+	}
+
+	.experiments-button:hover, .experiments-button.active {
+		color: white;
+		transition: color 0.4s;
+		background: linear-gradient(45deg, orange, red);
+	}
+
+	.resume-button:hover, .resume-button.active {
+		color: white;
+		transition: color 0.4s;
+		background: linear-gradient(45deg, darkcyan, darkgreen);
+	}
+}
