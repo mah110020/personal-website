@@ -1,4 +1,12 @@
+
 .app {
 	height: 100%;
 	width: 100%;
+
+	button {
+		border: none; // naked button
+		font: inherit; // naked button
+
+		cursor: pointer;
+	}
 }

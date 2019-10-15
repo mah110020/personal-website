@@ -8,9 +8,9 @@ class LaunchingPad extends React.Component {
 			<div className="launching-pad">
 				<h1>Explore More</h1>
 				<div className="portal-row">
-					<span className="portal button1">About Me</span>
-					<span className="portal button2">Experiments</span>
-					<span className="portal button3">Resume</span>
+					<button className="portal button1">About Me</button>
+					<button className="portal button2">Experiments</button>
+					<button className="portal button3">Resume</button>
 				</div>
 			</div>
 		);
