@@ -6,6 +6,13 @@
 
 	background-color: #fff1a2;
 
-	text-align: center;
+	display: flex;
+	justify-content: center;
+
+	.text-column {
+		padding: 5ch;
+		max-width: 50ch;
+		text-align: justify;
+	}
 
 }

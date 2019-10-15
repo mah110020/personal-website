@@ -6,9 +6,16 @@ class AboutMe extends React.Component {
 	render() {
 		return (
 			<div className="about-me">
-				<br/>
-				<div>My name is Matt and I'm here to say,</div>
-				<div>I built this app the React way.</div>
+				<div className="text-column">
+					This is not a resume. This section is intended as a chance to get to know me a little.
+					<br/>
+					<br/>
+					Hi. I am Matthew Henderson. I currently work as a contractor for NASA Goddard.
+					NASA Goddard is located in Greenbelt, Maryland just outside the D.C. beltway.
+					I Initially moved to the D.C. area while my girlfriend Abby did graduate work
+					at the near-by university. I worked on-site for two years before moving to Texas
+					and continuing development for our projects in a remote capacity.
+				</div>
 			</div>
 		);
 	}
