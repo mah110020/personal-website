@@ -15,7 +15,7 @@ class LaunchingPad extends React.Component {
 				<div className="portal-row">
 					<button {...this.aboutHandler} className="portal button1">About Me</button>
 					<button className="portal button2">Experiments</button>
-					<button className="portal button3">Resume</button>
+					<button className="portal button3">Résumé</button>
 				</div>
 			</div>
 		);
