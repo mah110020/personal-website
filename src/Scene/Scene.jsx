@@ -7,15 +7,15 @@ import parametricTransforms from "./parametricTransforms.js";
 import faceTypeFont from "./optimer_regular.typeface.json";
 import "./Scene.scss";
 
-let fold = null;
-
 class Scene extends React.Component {
 	ref = React.createRef();
+
+	fold = null;
 
 	componentDidUpdate(prevProps, prevState, snapshot){
 		if(prevProps.radians !== this.props.radians){
 			const {radians} = this.props;
-			fold(radians);
+			this.fold(radians);
 		}
 	}
 
@@ -163,7 +163,7 @@ class Scene extends React.Component {
 
 		animate();
 
-		fold = radians => {
+		this.fold = radians => {
 			for( const {mesh, parametricTransform} of Object.values(meshMap) ){
 				parametricTransform(radians);
 			}
