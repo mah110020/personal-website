@@ -36,6 +36,10 @@ class App extends React.Component {
 		// initial url
 		const url = document.location.pathname;
 		this.props.navigateURL(url);
+
+		window.onpopstate = evt => {
+			this.props.navigateURL(document.location.pathname, false);
+		};
 	}
 
 	render() {
@@ -52,7 +56,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	navigateURL: url => dispatch(navigateURL(url))
+	navigateURL: (url, push) => dispatch(navigateURL(url, push))
 });
 
 export default connect(
