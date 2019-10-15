@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { navigateURL } from "./actions";
+import { navigateURL } from "./actions.js";
 import Parallax from "./Parallax/Parallax.jsx";
+import AboutMe from "./AboutMe/AboutMe.jsx";
 import "./App.scss";
 import "./iconLibrary.js";
 
@@ -11,6 +12,10 @@ const Router = ({url, navigateURL}) => {
 		// home page
 		case "/": {
 			return <Parallax />;
+		}
+
+		case "/about": {
+			return <AboutMe />;
 		}
 
 		// initializing..
