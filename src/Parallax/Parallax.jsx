@@ -43,7 +43,7 @@ class Parallax extends React.Component {
 
 				<div className="slider" ref={this.slider2Ref}>
 					<div ref={this.panel2Ref}>
-						<Scene radians={Math.PI/2 * 0.95 * (1 - this.state.portion2)} />
+						<Scene portion={this.state.portion2} />
 					</div>
 				</div>
 

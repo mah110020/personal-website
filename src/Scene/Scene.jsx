@@ -7,20 +7,24 @@ import parametricTransforms from "./parametricTransforms.js";
 import faceTypeFont from "./optimer_regular.typeface.json";
 import "./Scene.scss";
 
+// translate portion to fold angle
+const getAngle = portion => {
+	return Math.PI/2 * 0.95 * (1 - portion);
+}
+
 class Scene extends React.Component {
 	ref = React.createRef();
 
 	fold = null;
 
 	componentDidUpdate(prevProps, prevState, snapshot){
-		if(prevProps.radians !== this.props.radians){
-			const {radians} = this.props;
-			this.fold(radians);
+		if(prevProps.portion !== this.props.portion){
+			this.fold(this.props.portion);
 		}
 	}
 
 	componentDidMount(){
-		const {radians: initAngle} = this.props;
+		const initAngle = getAngle(this.props.portion);
 
 		const scene = new THREE.Scene();
 		scene.background = new THREE.Color( 0xa6deff );
@@ -141,6 +145,9 @@ class Scene extends React.Component {
 		light2.position.set( -10, -10, -10 );
 		scene.add( light2 );
 
+		var light = new THREE.AmbientLight( 0x222222 );
+		scene.add( light );
+
 		//const axesHelper = new THREE.AxesHelper( 100 );
 		//scene.add( axesHelper );
 
@@ -155,7 +162,7 @@ class Scene extends React.Component {
 			// }
 
 			camera.up.set(0,0,1);
-			camera.lookAt(new THREE.Vector3(8.5/2,5.5/2,5.5/2));
+			camera.lookAt(new THREE.Vector3(8.5/2,5.5/2,5.5/4));
 			angle += 0.01;
 
 			renderer.render( scene, camera );
@@ -163,11 +170,13 @@ class Scene extends React.Component {
 
 		animate();
 
-		this.fold = radians => {
+		this.fold = portion => {
 			for( const {mesh, parametricTransform} of Object.values(meshMap) ){
-				parametricTransform(radians);
+				parametricTransform(getAngle(portion));
 			}
 		};
+
+		this.fold(this.props.portion);
 	}
 
 	render() {
