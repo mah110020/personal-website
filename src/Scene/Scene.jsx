@@ -151,29 +151,19 @@ class Scene extends React.Component {
 		//const axesHelper = new THREE.AxesHelper( 100 );
 		//scene.add( axesHelper );
 
-		let angle = 0;
-		const animate = function () {
-			requestAnimationFrame( animate );
-
-			camera.position.set(2*Math.sin(angle),7+2*Math.cos(angle),5);
-			// for( const {mesh, parametricTransform} of Object.values(meshMap) ){
-			// 	scene.add(mesh);
-			// 	parametricTransform(angle/4%(Math.PI/2));
-			// }
-
-			camera.up.set(0,0,1);
-			camera.lookAt(new THREE.Vector3(8.5/2,5.5/2,5.5/4));
-			angle += 0.01;
-
-			renderer.render( scene, camera );
-		};
-
-		animate();
-
 		this.fold = portion => {
 			for( const {mesh, parametricTransform} of Object.values(meshMap) ){
 				parametricTransform(getAngle(portion));
+				camera.position.set(
+					-9 * Math.sin(Math.PI/2*portion*0.4) + 8.5/2,
+					9 * Math.cos(Math.PI/2*portion*0.4),
+					5
+				);
 			}
+			camera.up.set(0,0,1);
+			camera.lookAt(new THREE.Vector3(8.5/2,5.5/2,5.5/4));
+
+			renderer.render( scene, camera );
 		};
 
 		this.fold(this.props.portion);
