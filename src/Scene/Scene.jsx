@@ -28,7 +28,8 @@ class Scene extends React.Component {
 
 		const scene = new THREE.Scene();
 		scene.background = new THREE.Color( 0xa6deff );
-		const camera = new THREE.PerspectiveCamera( 75, this.ref.current.clientWidth/this.ref.current.clientHeight, 0.1, 1000 );
+		const aspect = this.ref.current.clientWidth/this.ref.current.clientHeight;
+		const camera = new THREE.PerspectiveCamera( 75, aspect, 0.1, 1000 );
 
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setSize( this.ref.current.clientWidth, this.ref.current.clientHeight );
