@@ -58,27 +58,10 @@ class Sketch extends React.Component {
 			<div ref={this.containerRef} className="sketch">
 				<div className="overlay-container" style={{width: `${sketchRatio * this.state.heightScale}px`, height: `${this.state.heightScale}px`}}>
 					<div className="overlay" style={{opacity: 1 - this.props.portion}}>
-						<svg width="100%" height="100%" viewBox={`0 0 ${sketchSize.width} ${sketchSize.height}`}>
-							<image
-								href={house}
-								x={sketchSize.width/2 - imageSize.width/2}
-								y={sketchSize.height/2 - imageSize.height/2}
-								{...imageSize} />
-						</svg>
+						<SketchImage />
 					</div>
 					<div className="overlay" style={{opacity: this.props.portion}}>
-						<svg width="100%" height="100%" viewBox={`0 0 ${sketchSize.width} ${sketchSize.height}`}>
-							{lines.map( ({from, to}, index) =>
-								<line
-									key={index /*`lines` never changes*/}
-									x1={from.x - linesOrigin.x + sketchSize.width/2}
-									y1={sketchSize.height - (from.y - linesOrigin.y + sketchSize.height/2)}
-									x2={to.x - linesOrigin.x + sketchSize.width/2}
-									y2={sketchSize.height - (to.y - linesOrigin.y + sketchSize.height/2)}
-									style={{strokeWidth:0.03}}
-								/>
-							)}
-						</svg>
+						<SketchLines />
 					</div>
 				</div>
 
@@ -95,6 +78,47 @@ class Sketch extends React.Component {
 					Build
 				</span>
 			</div>
+		);
+	}
+}
+
+class SketchLines extends React.Component {
+	shouldComponentUpdate(nextProps, nextState){
+		return false;
+	}
+
+	render() {
+		return (
+			<svg width="100%" height="100%" viewBox={`0 0 ${sketchSize.width} ${sketchSize.height}`}>
+				{lines.map( ({from, to}, index) =>
+					<line
+						key={index /*`lines` never changes*/}
+						x1={from.x - linesOrigin.x + sketchSize.width/2}
+						y1={sketchSize.height - (from.y - linesOrigin.y + sketchSize.height/2)}
+						x2={to.x - linesOrigin.x + sketchSize.width/2}
+						y2={sketchSize.height - (to.y - linesOrigin.y + sketchSize.height/2)}
+						style={{strokeWidth:0.03}}
+					/>
+				)}
+			</svg>
+		);
+	}
+}
+
+class SketchImage extends React.Component {
+	shouldComponentUpdate(nextProps, nextState){
+		return false;
+	}
+
+	render() {
+		return (
+			<svg width="100%" height="100%" viewBox={`0 0 ${sketchSize.width} ${sketchSize.height}`}>
+				<image
+					href={house}
+					x={sketchSize.width/2 - imageSize.width/2}
+					y={sketchSize.height/2 - imageSize.height/2}
+					{...imageSize} />
+			</svg>
 		);
 	}
 }
