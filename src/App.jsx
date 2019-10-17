@@ -4,6 +4,7 @@ import { navigateURL } from "./actions.js";
 import Navbar from "./Navbar/Navbar.jsx";
 import Parallax from "./Parallax/Parallax.jsx";
 import AboutMe from "./AboutMe/AboutMe.jsx";
+import PageNotFound from "./PageNotFound/PageNotFound.jsx";
 import "./App.scss";
 import "./iconLibrary.js";
 
@@ -38,7 +39,7 @@ class App extends React.Component {
 
 			// no defined route
 			default: {
-				return null;
+				return <PageNotFound />;
 			}
 		}
 	};

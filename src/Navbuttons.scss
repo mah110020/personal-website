@@ -16,6 +16,10 @@
 		font-weight: bold;
 	}
 
+	.buffered-button {
+		margin: 1.5ch;
+	}
+
 	.home-button:hover, .home-button.active {
 		color: white;
 		transition: color 0.4s;
