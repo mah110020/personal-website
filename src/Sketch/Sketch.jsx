@@ -68,8 +68,9 @@ class Sketch extends React.Component {
 					</div>
 					<div className="overlay" style={{opacity: this.props.portion}}>
 						<svg width="100%" height="100%" viewBox={`0 0 ${sketchSize.width} ${sketchSize.height}`}>
-							{lines.map( ({from, to}) =>
+							{lines.map( ({from, to}, index) =>
 								<line
+									key={index /*`lines` never changes*/}
 									x1={from.x - linesOrigin.x + sketchSize.width/2}
 									y1={sketchSize.height - (from.y - linesOrigin.y + sketchSize.height/2)}
 									x2={to.x - linesOrigin.x + sketchSize.width/2}
