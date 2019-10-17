@@ -9,14 +9,14 @@ class Navbar extends React.Component {
 
 	homeHandler = onPress(this.props.navigateURL.bind(null, "/"));
 	aboutHandler = onPress(this.props.navigateURL.bind(null, "/about"));
-	//experimentsHandler = onPress(this.props.navigateURL.bind(null, "/experiments"));
+	experimentsHandler = onPress(this.props.navigateURL.bind(null, "/experiments"));
 
 	render() {
 		return (
 			<div className="navbar navbuttons">
 				<button className={`navlink home-button ${this.props.url === "/" ? "active" : ""}`} {...this.homeHandler}>Home</button>
 				<button className={`navlink about-button ${this.props.url === "/about" ? "active" : ""}`} {...this.aboutHandler}>About</button>
-				<button className={`navlink experiments-button ${this.props.url === "/experiments" ? "active" : ""}`}>Experiments</button>
+				<button className={`navlink experiments-button ${this.props.url === "/experiments" ? "active" : ""}`} {...this.experimentsHandler}>Experiments</button>
 				<button className="navlink resume-button">Résumé</button>
 			</div>
 		);

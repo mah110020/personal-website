@@ -4,6 +4,7 @@ import { navigateURL } from "./actions.js";
 import Navbar from "./Navbar/Navbar.jsx";
 import Parallax from "./Parallax/Parallax.jsx";
 import AboutMe from "./AboutMe/AboutMe.jsx";
+import Experiments from "./Experiments/Experiments.jsx";
 import PageNotFound from "./PageNotFound/PageNotFound.jsx";
 import "./App.scss";
 import "./iconLibrary.js";
@@ -32,6 +33,11 @@ class App extends React.Component {
 				return <AboutMe />;
 			}
 
+			// experiments page
+			case "/experiments": {
+				return <Experiments />;
+			}
+
 			// initializing..
 			case null: {
 				return null;
@@ -48,7 +54,7 @@ class App extends React.Component {
 		return (
 			<div className="app">
 				<div className="static-flex">
-					{ ["/about"].includes(this.props.url) && <Navbar/>}
+					{ ["/about", "/experiments"].includes(this.props.url) && <Navbar/>}
 				</div>
 				<div className="dynamic-flex">
 					{this.router(this.props.url)}

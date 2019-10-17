@@ -7,6 +7,7 @@ import "./LaunchingPad.scss";
 class LaunchingPad extends React.Component {
 
 	aboutHandler = onPress(this.props.navigateURL.bind(null, "/about"));
+	experimentsHandler = onPress(this.props.navigateURL.bind(null, "/experiments"));
 
 	render() {
 		return (
@@ -14,7 +15,7 @@ class LaunchingPad extends React.Component {
 				<h1>Explore More</h1>
 				<div className="navigation-row navbuttons">
 					<button {...this.aboutHandler} className="navlink about-button buffered-button">About Me</button>
-					<button className="navlink experiments-button buffered-button">Experiments</button>
+					<button {...this.experimentsHandler} className="navlink experiments-button buffered-button">Experiments</button>
 					<button className="navlink resume-button buffered-button">Résumé</button>
 				</div>
 			</div>
