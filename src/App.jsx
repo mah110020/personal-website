@@ -7,31 +7,6 @@ import AboutMe from "./AboutMe/AboutMe.jsx";
 import "./App.scss";
 import "./iconLibrary.js";
 
-const Router = ({url, navigateURL}) => {
-	switch(url){
-
-		// home page
-		case "/": {
-			return <Parallax />;
-		}
-
-		case "/about": {
-			return <AboutMe />;
-		}
-
-		// initializing..
-		case null: {
-			return null;
-		}
-
-		// no defined route -- route back to home page
-		default: {
-			navigateURL("/");
-			return null;
-		}
-	}
-};
-
 class App extends React.Component {
 	componentDidMount(){
 		// initial url
@@ -43,6 +18,31 @@ class App extends React.Component {
 		};
 	}
 
+	router = url => {
+		switch(url){
+
+			// home page
+			case "/": {
+				return <Parallax />;
+			}
+
+			// about page
+			case "/about": {
+				return <AboutMe />;
+			}
+
+			// initializing..
+			case null: {
+				return null;
+			}
+
+			// no defined route
+			default: {
+				return null;
+			}
+		}
+	};
+
 	render() {
 		return (
 			<div className="app">
@@ -50,7 +50,7 @@ class App extends React.Component {
 					{ ["/about"].includes(this.props.url) && <Navbar/>}
 				</div>
 				<div className="dynamic-flex">
-					<Router url={this.props.url} navigateURL={this.props.navigateURL}/>
+					{this.router(this.props.url)}
 				</div>
 			</div>
 		);
