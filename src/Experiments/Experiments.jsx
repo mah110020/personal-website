@@ -1,5 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Sidebar from "./Sidebar.jsx";
+import { navigateURL } from "../actions.js";
+import onPress from "../onPress.js";
 import "./Experiments.scss";
 
 class Experiments extends React.Component {
@@ -17,31 +21,15 @@ class Experiments extends React.Component {
 	}
 }
 
-const items = [];//Array(50).fill("").map( item => "0123456789abcefghijklmnopqrstuvwxyz" );
+const mapStateToProps = (state, ownProps) => ({
+	url: state.url
+});
 
-class Sidebar extends React.Component {
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	navigateURL: url => dispatch(navigateURL(url))
+});
 
-	state = { expanded: true };
-
-	toggle = () => this.setState({ expanded: !this.state.expanded });
-
-	render(){
-		return (
-			<div className="sidebar">
-				<div className={`sidebar-slider ${this.state.expanded ? "expanded" : ""}`}>
-					{items.map( item => (
-						<button className="topic" onClick={this.toggle}>
-							{item}
-						</button>
-					))}
-				</div>
-				<div className="toggler">
-					{this.state.expanded && <button onClick={this.toggle}><FontAwesomeIcon icon="times" className="times" size="3x"/></button> }
-					{!this.state.expanded && <button onClick={this.toggle}><FontAwesomeIcon icon="bars" className="bars" size="3x"/></button> }
-				</div>
-			</div>
-		);
-	}
-}
-
-export default Experiments;
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Experiments);
