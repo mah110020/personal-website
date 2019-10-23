@@ -24,31 +24,47 @@ class App extends React.Component {
 
 		if( url === null ){
 			// initializing..
-			return null;
+			return {
+				hasNav: false,
+				component: null
+			};
 		} else if( url === "/" ){
 			// home page
-			return <Parallax />;
+			return {
+				hasNav: false,
+				component: <Parallax />
+			};
 		} else if( url === "/about" ){
 			// about page
-			return <AboutMe />;
+			return {
+				hasNav: true,
+				component: <AboutMe />
+			};
 		} else if( url === "/experiments" || url.startsWith("/experiments/") ){
 			// experiments page
-			return <Experiments />;
+			return {
+				hasNav: true,
+				component: <Experiments />
+			};
 		} else {
 			// no defined route
-			return <PageNotFound />;
+			return {
+				hasNav: false,
+				component: <PageNotFound />
+			};
 		}
 
 	};
 
 	render() {
+		const {hasNav, component} = this.router(this.props.url);
 		return (
 			<div className="app">
 				<div className="static-flex">
-					{ ["/about", "/experiments"].includes(this.props.url) && <Navbar/>}
+					{hasNav && <Navbar/>}
 				</div>
 				<div className="dynamic-flex">
-					{this.router(this.props.url)}
+					{component}
 				</div>
 			</div>
 		);
