@@ -21,33 +21,24 @@ class App extends React.Component {
 	}
 
 	router = url => {
-		switch(url){
 
-			// home page
-			case "/": {
-				return <Parallax />;
-			}
-
-			// about page
-			case "/about": {
-				return <AboutMe />;
-			}
-
-			// experiments page
-			case "/experiments": {
-				return <Experiments />;
-			}
-
+		if( url === null ){
 			// initializing..
-			case null: {
-				return null;
-			}
-
+			return null;
+		} else if( url === "/" ){
+			// home page
+			return <Parallax />;
+		} else if( url === "/about" ){
+			// about page
+			return <AboutMe />;
+		} else if( url === "/experiments" || url.startsWith("/experiments/") ){
+			// experiments page
+			return <Experiments />;
+		} else {
 			// no defined route
-			default: {
-				return <PageNotFound />;
-			}
+			return <PageNotFound />;
 		}
+
 	};
 
 	render() {
