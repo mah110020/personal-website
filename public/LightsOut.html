@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="LightsOut.css">
+	</head>
+	<header><title>Lights Out!</title></header>
+	<body>
+
+		<!-- manage state, and define neighbor associations -->
+
+		<input id="c01" class="a01 a02 a06" type="checkbox">
+		<input id="c02" class="a01 a02 a03 a07" type="checkbox">
+		<input id="c03" class="a02 a03 a04 a08" type="checkbox">
+		<input id="c04" class="a03 a04 a05 a09" type="checkbox">
+		<input id="c05" class="a04 a05 a10" type="checkbox">
+		<input id="c06" class="a01 a06 a07 a11" type="checkbox">
+		<input id="c07" class="a02 a06 a07 a08 a12" type="checkbox">
+		<input id="c08" class="a03 a07 a08 a09 a13" type="checkbox">
+		<input id="c09" class="a04 a08 a09 a10 a14" type="checkbox">
+		<input id="c10" class="a05 a09 a10 a15" type="checkbox">
+		<input id="c11" class="a06 a11 a12 a16" type="checkbox">
+		<input id="c12" class="a07 a11 a12 a13 a17" type="checkbox">
+		<input id="c13" class="a08 a12 a13 a14 a18" type="checkbox">
+		<input id="c14" class="a09 a13 a14 a15 a19" type="checkbox">
+		<input id="c15" class="a10 a14 a15 a20" type="checkbox">
+		<input id="c16" class="a11 a16 a17 a21" type="checkbox">
+		<input id="c17" class="a12 a16 a17 a18 a22" type="checkbox">
+		<input id="c18" class="a13 a17 a18 a19 a23" type="checkbox">
+		<input id="c19" class="a14 a18 a19 a20 a24" type="checkbox">
+		<input id="c20" class="a15 a19 a20 a25" type="checkbox">
+		<input id="c21" class="a16 a21 a22" type="checkbox">
+		<input id="c22" class="a17 a21 a22 a23" type="checkbox">
+		<input id="c23" class="a18 a22 a23 a24" type="checkbox">
+		<input id="c24" class="a19 a23 a24 a25" type="checkbox">
+		<input id="c25" class="a20 a24 a25" type="checkbox">
+
+		<!-- initial state for each cell -->
+		<!-- add `checked` attribute to toggle starting cell color -->
+		<!-- you will need to encode associated solutions in the css -->
+
+		<input class="a01" type="checkbox" checked="checked">
+		<input class="a02" type="checkbox" checked="checked">
+		<input class="a03" type="checkbox" checked="checked">
+		<input class="a04" type="checkbox">
+		<input class="a05" type="checkbox">
+		<input class="a06" type="checkbox">
+		<input class="a07" type="checkbox">
+		<input class="a08" type="checkbox">
+		<input class="a09" type="checkbox" checked="checked">
+		<input class="a10" type="checkbox" checked="checked">
+		<input class="a11" type="checkbox">
+		<input class="a12" type="checkbox" checked="checked">
+		<input class="a13" type="checkbox">
+		<input class="a14" type="checkbox" checked="checked">
+		<input class="a15" type="checkbox">
+		<input class="a16" type="checkbox">
+		<input class="a17" type="checkbox">
+		<input class="a18" type="checkbox">
+		<input class="a19" type="checkbox" checked="checked">
+		<input class="a20" type="checkbox" checked="checked">
+		<input class="a21" type="checkbox" checked="checked">
+		<input class="a22" type="checkbox">
+		<input class="a23" type="checkbox" checked="checked">
+		<input class="a24" type="checkbox" checked="checked">
+		<input class="a25" type="checkbox">
+
+		<!-- the rendered, clickable, colored squares -->
+
+		<label id="s01" for="c01"></label>
+		<label id="s02" for="c02"></label>
+		<label id="s03" for="c03"></label>
+		<label id="s04" for="c04"></label>
+		<label id="s05" for="c05"></label>
+		<label id="s06" for="c06"></label>
+		<label id="s07" for="c07"></label>
+		<label id="s08" for="c08"></label>
+		<label id="s09" for="c09"></label>
+		<label id="s10" for="c10"></label>
+		<label id="s11" for="c11"></label>
+		<label id="s12" for="c12"></label>
+		<label id="s13" for="c13"></label>
+		<label id="s14" for="c14"></label>
+		<label id="s15" for="c15"></label>
+		<label id="s16" for="c16"></label>
+		<label id="s17" for="c17"></label>
+		<label id="s18" for="c18"></label>
+		<label id="s19" for="c19"></label>
+		<label id="s20" for="c20"></label>
+		<label id="s21" for="c21"></label>
+		<label id="s22" for="c22"></label>
+		<label id="s23" for="c23"></label>
+		<label id="s24" for="c24"></label>
+		<label id="s25" for="c25"></label>
+
+		<!-- show message when the game is over -->
+
+		<div class="winner">
+			The lights are turned off.
+			<br>
+			You win!
+		</div>
+
+	</body>
+</html>
