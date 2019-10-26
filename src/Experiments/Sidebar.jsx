@@ -6,6 +6,9 @@ import { navigateURL } from "../actions.js";
 import "./Sidebar.scss";
 
 const items = [{
+	route: "",
+	description: "Experiments Home"
+},{
 	route: "lights-out",
 	description: "CSS-Only Game"
 }];//Array(50).fill("").map( item => ({route:null, description: "0123456789abcefghijklmnopqrstuvwxyz"}) );
