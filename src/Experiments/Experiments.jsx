@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Sidebar from "./Sidebar.jsx";
 import LightsOut from "../LightsOut/LightsOut.jsx";
 import { navigateURL } from "../actions.js";
-import onPress from "../onPress.js";
 import "./Experiments.scss";
 
 const ExperimentsHome = () => {
