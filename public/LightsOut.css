@@ -3,7 +3,7 @@ body {
 	margin: 0; /*remove body margin*/
 	font-size: 0; /*remove whitespace after inline-block*/
 
-	background-color: cadetblue;
+	background-color: #ffe9c4;
 
 	position: relative;
 
@@ -22,7 +22,7 @@ label {
 	display: inline-block;
 	box-sizing: border-box;
 
-	border: 5px solid cadetblue;
+	border: 5px solid #ffe9c4;
 	border-width: 0.5vmin;
 
 	cursor: pointer;
