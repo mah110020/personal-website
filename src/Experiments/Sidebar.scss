@@ -3,9 +3,11 @@
 	position: static;
 	height: 100%;
 
+	z-index: 20;
+
 	.toggler {
 		position: absolute;
-		
+
 		display: none;
 		vertical-align: top;
 
