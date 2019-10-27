@@ -37,7 +37,7 @@ class Experiments extends React.Component {
 			<div className="experiments">
 				<Sidebar />
 
-				<div className="primary-content">
+				<div className="primary-content sidebar-blur">
 					{items[this.props.experiment]}
 				</div>
 			</div>

@@ -67,6 +67,10 @@
 		}
 	}
 
+	& ~ .sidebar-blur {
+		filter: blur(0px);
+	}
+
 	// decides whether the sidebar will overlay on top,
 	// or whether it will insert iself into the content flow
 	@media screen and (max-width: 1250px) {
@@ -75,6 +79,10 @@
 
 		&.expanded {
 			width: 100%;
+		}
+
+		&.expanded ~ .sidebar-blur {
+			filter: blur(5px);
 		}
 
 		&:not(.expanded) .sidebar-slider {
