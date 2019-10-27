@@ -7,7 +7,26 @@ import { navigateURL } from "../actions.js";
 import onPress from "../onPress.js";
 import "./Experiments.scss";
 
+const ExperimentsHome = () => {
+	return (
+		<div className="experiments-home">
+			<span style={{fontWeight:"bold"}}>Welcome to the experiments area.</span>
+			<div className="text-column">
+				<p>
+					This is a creative space for me to explore ideas & technology,
+					in ways that I might otherwise not be able to in everyday
+					professional work.
+				</p>
+				<p>
+					Those works are available in the left sidebar.
+				</p>
+			</div>
+		</div>
+	);
+};
+
 const items = {
+	"": <ExperimentsHome />,
 	"lights-out": <LightsOut />
 };
 

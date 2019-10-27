@@ -1,8 +1,8 @@
 
 .experiments {
 
-	height: 100%;
 	width: 100%;
+	height: 100%;
 
 	display: flex;
 	flex-direction: row;
@@ -16,6 +16,24 @@
 		flex-shrink: 1;
 
 		background-color: aliceblue;
+	}
+
+	.experiments-home {
+		width: 100%;
+		height: 100%;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		.text-column {
+			padding-left: 5ch;
+			padding-right: 5ch;
+			max-width: 50ch;
+			text-align: justify;
+		}
 	}
 
 }
