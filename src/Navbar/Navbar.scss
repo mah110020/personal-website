@@ -12,4 +12,12 @@
 		flex-grow: 1;
 		flex-shrink: 0;
 	}
+
+	.navlink {
+		border: 1px solid black;
+	}
+
+	.navlink:not(:last-child){
+		border-right-width: 0;
+	}
 }
