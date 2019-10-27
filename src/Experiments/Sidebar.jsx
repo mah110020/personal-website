@@ -15,7 +15,7 @@ const items = [{
 
 class Sidebar extends React.Component {
 
-	state = { expanded: true };
+	state = { expanded: false };
 
 	toggle = () => this.setState({ expanded: !this.state.expanded });
 
