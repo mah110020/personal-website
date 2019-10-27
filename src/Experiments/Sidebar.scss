@@ -17,10 +17,6 @@
 		cursor: pointer;
 	}
 
-	&:not(.expanded) .sidebar-screen {
-		display: none;
-	}
-
 	.toggler {
 		position: absolute;
 
@@ -75,10 +71,10 @@
 	// or whether it will insert iself into the content flow
 	@media screen and (max-width: 1250px) {
 		position: absolute;
-		width: 100%;
+		width: 0%;
 
-		.toggler {
-			display: inline-block;
+		&.expanded {
+			width: 100%;
 		}
 
 		&:not(.expanded) .sidebar-slider {
@@ -86,5 +82,14 @@
 			padding: 0;
 			overflow: hidden;
 		}
+
+		&:not(.expanded) .sidebar-screen {
+			display: none;
+		}
+
+		.toggler {
+			display: inline-block;
+		}
+
 	}
 }
