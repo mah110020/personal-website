@@ -29,9 +29,15 @@ class Sidebar extends React.Component {
 	}));
 
 	render(){
+		const toggleIcon = this.state.expanded ? "times" : "bars";
+
 		return (
-			<div className="sidebar">
-				<div className={`sidebar-slider ${this.state.expanded ? "expanded" : ""}`}>
+			<div className={`sidebar ${this.state.expanded ? "expanded" : ""}`}>
+				<div
+					className="sidebar-screen"
+					onClick={this.toggle}
+				></div>
+				<div className="sidebar-slider">
 					{this.experiments.map( item => (
 						<button key={item.route} className="topic" {...item.loadHandler}>
 							{item.description}
@@ -39,8 +45,7 @@ class Sidebar extends React.Component {
 					))}
 				</div>
 				<div className="toggler">
-					{this.state.expanded && <button onClick={this.toggle}><FontAwesomeIcon icon="times" className="times" size="3x"/></button> }
-					{!this.state.expanded && <button onClick={this.toggle}><FontAwesomeIcon icon="bars" className="bars" size="3x"/></button> }
+					<button onClick={this.toggle}><FontAwesomeIcon icon={toggleIcon} className={toggleIcon} size="3x"/></button>
 				</div>
 			</div>
 		);

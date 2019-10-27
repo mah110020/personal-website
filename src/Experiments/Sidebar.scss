@@ -1,9 +1,25 @@
 
 .sidebar {
-	position: static;
+	position: relative;
 	height: 100%;
+	width: unset;
 
 	z-index: 20;
+
+	.sidebar-screen {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+		background-color: black;
+		opacity: 0.3;
+
+		cursor: pointer;
+	}
+
+	&:not(.expanded) .sidebar-screen {
+		display: none;
+	}
 
 	.toggler {
 		position: absolute;
@@ -20,6 +36,7 @@
 	}
 
 	.sidebar-slider {
+		position: relative;
 		display: inline-block;
 		vertical-align: top;
 		font-size: 1.5em;
@@ -58,11 +75,13 @@
 	// or whether it will insert iself into the content flow
 	@media screen and (max-width: 1250px) {
 		position: absolute;
+		width: 100%;
+
 		.toggler {
 			display: inline-block;
 		}
 
-		.sidebar-slider:not(.expanded) {
+		&:not(.expanded) .sidebar-slider {
 			width: 0;
 			padding: 0;
 			overflow: hidden;
