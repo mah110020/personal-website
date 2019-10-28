@@ -16,7 +16,7 @@ class Navbar extends React.Component {
 			<div className="navbar navbuttons">
 				<button className={`navlink home-button ${this.props.url === "/" ? "active" : ""}`} {...this.homeHandler}>Home</button>
 				<button className={`navlink about-button ${this.props.url === "/about" ? "active" : ""}`} {...this.aboutHandler}>About</button>
-				<button className={`navlink experiments-button ${this.props.url === "/experiments" ? "active" : ""}`} {...this.experimentsHandler}>Experiments</button>
+				<button className={`navlink experiments-button ${this.props.url.startsWith("/experiments") ? "active" : ""}`} {...this.experimentsHandler}>Experiments</button>
 				<button className="navlink resume-button">Résumé</button>
 			</div>
 		);
