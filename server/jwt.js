@@ -12,6 +12,7 @@ const init = (req, res, next) => {
 		res.clearCookie(cookieName); // remove the auth cookie
 		const token = jwt.sign(payload, jwtSecret, {expiresIn}); // generate the token
 		res.cookie(cookieName, token); // set the auth cookie
+		req.payload = payload; // attach payload for handling
 	};
 
 	req.login = login;

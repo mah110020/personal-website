@@ -4,6 +4,7 @@ const fs = require("fs");
 const cookieParser = require("cookie-parser");
 
 const auth = require("./jwt.js");
+const {authenticate} = require("./authenticate.js");
 
 const PORT = 8080;
 
@@ -15,12 +16,30 @@ app.use(cookieParser()); // makes cookies available as object
 
 app.use(auth.init); // exposes `req.login` and `req.payload`; auth exposes middleware
 
+// api to login
+app.post("/", (req, res) => {
+	const {token} = req.body;
+
+	// attempt login
+	if( authenticate(token) ){
+		// success
+		req.login({ date: new Date().getTime() });
+	}
+
+	res.set("Content-Type", "text/html");
+	if( req.payload ){ // authorized
+		res.sendFile(path.join(__dirname, "../build/index.html"));
+	} else { // not authorized
+		res.sendFile(path.join(__dirname, "./login.html"));
+	}
+});
+
 // intercept any unauthorized requests, send login page
 app.use((req, res, next) => {
 	const unauthorized = !req.payload;
 	if( unauthorized ){
 		res.set("Content-Type", "text/html");
-		res.send(new Buffer("<h2>You are an unauthorized user. TODO: Add a login page here.</h2>"));
+		res.sendFile(path.join(__dirname, "./login.html"));
 	} else {
 		next();
 	}
@@ -39,6 +58,7 @@ app.use("/", [auth.active, express.static(path.join(__dirname, "../build"))]);
 
 // catch-all: serve the web app.
 app.get("*", auth.active, (req, res) => {
+	res.set("Content-Type", "text/html");
 	res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
