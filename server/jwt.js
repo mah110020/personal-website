@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
-const jwtSecret = crypto.randomBytes(64); // changes on server restarts
+const jwtSecret = crypto.randomBytes(64).toString("hex"); // changes on server restarts
 const cookieName = "jwtAuthToken";
 
 const expiresIn = 24 * 3600; // [seconds] 1 day;
