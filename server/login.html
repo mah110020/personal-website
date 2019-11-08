@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#000000" />
+	<meta
+		content="Authenticate"
+	/>
+
+	<style>
+
+		html, body, .root {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			width: 100vw;
+
+			background-color: lightgrey;
+		}
+
+		.root {
+			font-size: 2em;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		form {
+			width: 30ch;
+			max-width: 100vw;
+			height: 2em;
+		}
+
+		input {
+			width: 100%;
+			height: 100%;
+
+			box-sizing: border-box;
+
+			font-size: 0.7em;
+			text-align: center;
+		}
+
+	</style>
+
+	<title>Authenticate</title>
+	</head>
+	<body>
+
+		<div class="root">
+
+			<form method="post" autocomplete="off">
+				<input type="text" name="token" placeholder="Authentication Token">
+			</form>
+
+		</div>
+
+	</body>
+</html>
