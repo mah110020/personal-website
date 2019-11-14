@@ -1,1 +1,1 @@
-sudo rm /home/ubuntu/personal-website/server/accessKeyHashes.json
+sudo rm -f /home/ubuntu/personal-website/server/accessKeyHashes.json
