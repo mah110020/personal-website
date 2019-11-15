@@ -29,8 +29,17 @@
 	}
 
 	.name-expander {
+
+		@media screen and (max-width: 62ch) {
+			font-size: 9vw;
+		}
+
 		font-size: 3em;
+
+
 		font-family: monospace, monospace;
+
+		white-space: nowrap;
 
 		span {
 			vertical-align: middle;
