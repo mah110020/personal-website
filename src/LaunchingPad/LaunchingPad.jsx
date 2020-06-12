@@ -16,7 +16,7 @@ class LaunchingPad extends React.Component {
 				<div className="navigation-row navbuttons">
 					<button {...this.aboutHandler} className="navlink about-button buffered-button">About Me</button>
 					<button {...this.experimentsHandler} className="navlink experiments-button buffered-button">Experiments</button>
-					<button className="navlink resume-button buffered-button">Résumé</button>
+					{/*<button className="navlink resume-button buffered-button">Résumé</button>*/}
 				</div>
 			</div>
 		);
