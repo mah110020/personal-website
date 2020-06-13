@@ -1,12 +1,21 @@
 import React from "react";
 import "./AboutMe.scss";
+import dog from "./space-dog.jpg";
 
 class AboutMe extends React.Component {
 
 	render() {
 		return (
 			<div className="about-me">
-				<div className="text-column">
+				<div className="side-panel">
+					<div className="no-flow center">
+						<figure>
+							<img src={dog} alt="Dog in astronaut suit"/>
+							<figcaption>Art in L'Enfant Plaza, D.C. Metro</figcaption>
+						</figure>
+					</div>
+				</div>
+				<div className="text-column primary-panel">
 					<p>
 						Hello! I am Matthew Henderson.
 					</p>
@@ -35,6 +44,8 @@ class AboutMe extends React.Component {
 						Working at NASA has always been a dream of mine, and I consider it an honor to support the
 						agency and the mission however I can.
 					</p>
+				</div>
+				<div className="side-panel">
 				</div>
 			</div>
 		);

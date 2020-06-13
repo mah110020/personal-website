@@ -4,9 +4,51 @@
 	height: 100%;
 	width: 100%;
 
-	background-color: aliceblue; // #fff1a2;
-
-	display: flex;
 	justify-content: center;
+
+	.side-panel {
+		flex-shrink: 1;
+		flex-grow: 1;
+		position: relative;
+	}
+
+	.primary-panel {
+		flex-shrink: 0;
+		flex-grow: 0;
+		margin: auto;
+	}
+
+	.no-flow {
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	img {
+		max-height: 100%;
+		max-width: 100%;
+		width: 50ch;
+	}
+
+	figcaption {
+		text-align: center;
+	}
+
+	// decides whether the side panels will wrap around the text,
+	// or whether they will insert themselves into the content flow
+	@media screen and (min-width: 964px) {
+		display: flex;
+
+		.no-flow {
+			position: absolute;
+		}
+	}
 
 }
