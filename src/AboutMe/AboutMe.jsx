@@ -28,17 +28,17 @@ class AboutMe extends React.Component {
 					</p>
 					<p>
 						NASA Goddard is a very lively place to work. It is a large campus, with many buildings, and a
-						lot of history hidden throughout. Many building atriums function as small mueseums, filled with
+						lot of history hidden throughout. Many building atriums function as small museums, filled with
 						plaques, depictions, and exhibits to science and NASA missions. You may see your own face looking
-						back in the mirrors of a model space telescope, or in the polish of a nobel prize.
-						Large prints of nebulas addorn the cafeteria. There is also a dedicated museum outside the gate.
-						As you stroll outside through the rocket garden, you will find the center is seperated by
+						back in the mirrors of a model space telescope, or in the polish of a Nobel prize.
+						Large prints of nebulas adorn the cafeteria. There is also a dedicated museum outside the gate.
+						As you stroll through the rocket garden, you will find the center is separated by
 						greenery, and surrounded by forest.
 						Many deer and geese take up safe residence within the fence line, and emerge at dusk to obstruct
 						the roads.
 					</p>
 					<p>
-						There are many NASA affiliated centers, each with personell performing a wide assortment of duties.
+						There are many NASA affiliated centers, each with personnel performing a wide assortment of duties.
 						A large chunk of which are contractors like myself.
 						Not everyone is a rocket scientist.
 						Working at NASA has always been a dream of mine, and I consider it an honor to support the
