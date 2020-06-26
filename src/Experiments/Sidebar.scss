@@ -102,4 +102,14 @@
 		}
 
 	}
+
+	// decides whether the sidebar will snap to small screen width
+	@media screen and (max-width: calc(1.5*30ch + 4*20px + 50px)) {
+		&.expanded .toggler {
+			right: 0;
+		}
+		&.expanded .sidebar-slider {
+			width: 100%;
+		}
+	}
 }

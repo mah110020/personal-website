@@ -37,7 +37,9 @@ class Experiments extends React.Component {
 				<Sidebar />
 
 				<div className="primary-content sidebar-blur">
-					{items[this.props.experiment]}
+					<div className="new-block-formatting-context">
+						{items[this.props.experiment]}
+					</div>
 				</div>
 			</div>
 		);

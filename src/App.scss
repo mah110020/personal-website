@@ -33,7 +33,9 @@
 	.text-column {
 		padding-left: 5ch;
 		padding-right: 5ch;
-		width: 50ch;
+		width: 60ch;
+		max-width: 100%;
+		box-sizing: border-box;
 		text-align: justify;
 	}
 }
