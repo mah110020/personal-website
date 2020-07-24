@@ -17,7 +17,7 @@ const ExperimentsHome = () => {
 					professional work.
 				</p>
 				<p>
-					Those works are available in the left sidebar.
+					Those are available in the left sidebar. Though there isn't much here yet!
 				</p>
 			</div>
 		</div>
