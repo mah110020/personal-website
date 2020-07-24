@@ -1,17 +1,17 @@
 
 .navbuttons {
 	.navlink {
-		width: 20ch;
+		width: 23ch;
 
 		padding: 1.5ch;
 
-		background-color: gray;
+		background-color: lightgrey;
 
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
 
-		box-sizing: content-box;
+		box-sizing: border-box;
 
 		font-weight: bold;
 	}

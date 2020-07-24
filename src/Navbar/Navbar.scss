@@ -9,8 +9,10 @@
 	display: flex;
 	flex-wrap: wrap;
 
+	justify-content: center;
+
 	.navlink {
-		flex-grow: 1;
+		flex-grow: 0;
 		flex-shrink: 0;
 	}
 
@@ -20,5 +22,12 @@
 
 	.navlink:not(:last-child){
 		border-right-width: 0;
+	}
+
+	// decides whether the navbar buttons will stack
+	@media screen and (max-width: calc(23ch*3 + 11ch)) {
+		&.navbuttons .navlink {
+			width: 100%;
+		}
 	}
 }
